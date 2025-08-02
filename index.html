@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleHub - Your Fashion Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>StyleHub</h1>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search for clothing...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div id="cart">
+            Cart (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#products" onclick="filterByCategory('all')">All Clothing</a></li>
+            <li><a href="#products" onclick="filterByCategory('men')">Men</a></li>
+            <li><a href="#products" onclick="filterByCategory('women')">Women</a></li>
+            <li><a href="#products" onclick="filterByCategory('kids')">Kids</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#ask-question">Ask a Question</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#" onclick="showCart()">View Cart</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <h2>Discover Your Style with StyleHub</h2>
+        <p>Shop our extensive collection of clothing for men, women, and kids.</p>
+        <button onclick="document.querySelector('#products').scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('products').style.display = 'block'; document.getElementById('cart-section').style.display = 'none'; document.getElementById('hero').style.display = 'flex'; document.getElementById('reviews').style.display = 'block'; document.getElementById('ask-question').style.display = 'block'; document.getElementById('about').style.display = 'block'; document.getElementById('social-media').style.display = 'block';">Shop Now</button>
+    </section>
+
+    <section id="filters">
+        <select id="category-filter" onchange="applyFilters()">
+            <option value="all">All Categories</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="sportswear">Sportswear</option>
+            <option value="accessories">Accessories</option>
+        </select>
+        <select id="price-filter" onchange="applyFilters()">
+            <option value="all">All Prices</option>
+            <option value="0-2500">₹0 - ₹2500</option>
+            <option value="2500-5000">₹2500 - ₹5000</option>
+            <option value="5000-8300">₹5000 - ₹8300</option>
+            <option value="8300+">₹8300+</option>
+        </select>
+    </section>
+
+    <section id="products">
+        <h2>Shop Clothing</h2>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p>"Amazing selection and fast shipping! I found the perfect dress for my event."</p>
+            <p class="author">- Sarah M.</p>
+        </div>
+        <div class="review">
+            <p>"The quality of the clothes is fantastic, and the customer service is top-notch."</p>
+            <p class="author">- John D.</p>
+        </div>
+        <div class="review">
+            <p>"Love the variety of sportswear! Perfect for my active lifestyle."</p>
+            <p class="author">- Emma L.</p>
+        </div>
+    </section>
+
+    <section id="ask-question">
+        <h2>Ask a Question</h2>
+        <form id="question-form">
+            <input type="text" id="question-name" placeholder="Your Name" required>
+            <input type="email" id="question-email" placeholder="Your Email" required>
+            <textarea id="question-message" placeholder="Your Question" rows="5" required></textarea>
+            <button type="button" onclick="submitQuestion()">Submit Question</button>
+        </form>
+    </section>
+
+    <section id="about">
+        <h2>About StyleHub</h2>
+        <p>StyleHub is your one-stop destination for fashionable clothing for all ages and styles. We offer a wide range of products, from casual wear to formal attire, sportswear, and accessories. Our mission is to provide high-quality clothing at affordable prices, ensuring every customer finds something that suits their unique style. With a focus on customer satisfaction, we strive to make your shopping experience seamless and enjoyable.</p>
+    </section>
+
+    <section id="social-media">
+        <h2>Connect with Us</h2>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="https://www.linkedin.com/in/vishnuthakur8474"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </section>
+
+    <section id="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Total: ₹0.00</div>
+        <button id="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 StyleHub. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
