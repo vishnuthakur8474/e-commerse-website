@@ -12,6 +12,7 @@ StyleHub is a responsive e-commerce website for fashion retail, offering a seaml
 - Smooth scrolling and animations.
 
 ## Technologies  
-- HTML5, CSS3 (flexbox, grid, media queries), JavaScript.  
+- HTML5, CSS3 (flexbox, grid, media queries), JavaScript.
+- Used SweetAlert2 library for stylish and customizable popup alerts.  
 - Font Awesome icons
 - Unsplash hero image.
